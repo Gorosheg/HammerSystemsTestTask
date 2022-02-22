@@ -28,7 +28,8 @@
             <ImageView
                 android:id="@+id/firstSpecialOffer"
                 android:layout_width="300dp"
-                android:layout_height="112dp" />
+                android:layout_height="112dp"
+                app:srcCompat="@drawable/ic_special_offer" />
 
         </HorizontalScrollView>
 

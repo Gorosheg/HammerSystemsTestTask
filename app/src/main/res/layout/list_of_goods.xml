@@ -11,7 +11,8 @@
         android:layout_height="135dp"
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pizza"/>
 
     <TextView
         android:id="@+id/title"
