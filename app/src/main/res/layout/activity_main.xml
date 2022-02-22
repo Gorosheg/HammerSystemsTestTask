@@ -68,26 +68,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_menu"
                 android:gravity="center"
-                android:text="Меню"
+                android:text="@string/menu"
+                app:drawableTopCompat="@drawable/ic_menu"
                 tools:ignore="NestedWeights" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_profile"
                 android:gravity="center"
-                android:text="Профиль" />
+                android:text="@string/profile"
+                app:drawableTopCompat="@drawable/ic_profile" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_basket"
                 android:gravity="center"
-                android:text="Корзина" />
+                android:text="@string/basket"
+                app:drawableTopCompat="@drawable/ic_basket" />
         </LinearLayout>
 
     </LinearLayout>
