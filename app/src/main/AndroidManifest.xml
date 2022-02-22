@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hammer_Systems_Test_Task">
         <activity
-            android:name=".presentation.PizzaActivity"
+            android:name="com.first.hammer_systems_test_task.feature.presentation.PizzaActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
