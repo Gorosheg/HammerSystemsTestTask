@@ -68,7 +68,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_launcher_foreground"
+                android:drawableTop="@drawable/ic_menu"
+                android:gravity="center"
                 android:text="Меню"
                 tools:ignore="NestedWeights" />
 
@@ -76,14 +77,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop=""
+                android:drawableTop="@drawable/ic_profile"
+                android:gravity="center"
                 android:text="Профиль" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop=""
+                android:drawableTop="@drawable/ic_basket"
+                android:gravity="center"
                 android:text="Корзина" />
         </LinearLayout>
 
