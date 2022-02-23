@@ -18,81 +18,190 @@
             style="@style/Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:titleTextColor="@color/black" />
+            app:subtitleTextColor="@color/black"
+            app:titleTextColor="@color/black">
 
-        <HorizontalScrollView
-            android:id="@+id/horizontalScroll"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/moscow"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="24dp"
+                    app:srcCompat="@drawable/ic_switch" />
+
+            </LinearLayout>
 
             <ImageView
-                android:id="@+id/firstSpecialOffer"
-                android:layout_width="300dp"
-                android:layout_height="112dp"
-                app:srcCompat="@drawable/ic_special_offer" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                app:srcCompat="@drawable/ic_qr_code" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <HorizontalScrollView
+            android:id="@+id/tSpecialOffers"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp">
+
+                <ImageView
+                    android:id="@+id/firstSpecialOffer"
+                    android:layout_width="300dp"
+                    android:layout_height="112dp"
+                    android:layout_marginEnd="16dp"
+                    android:scaleType="center"
+                    app:srcCompat="@drawable/ic_special_offer" />
+
+                <ImageView
+                    android:id="@+id/secondSpecialOffer"
+                    android:layout_width="300dp"
+                    android:layout_height="112dp"
+                    android:layout_marginEnd="16dp"
+                    android:scaleType="center"
+                    app:srcCompat="@drawable/ic_special_offer_2" />
+
+            </LinearLayout>
 
         </HorizontalScrollView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:itemCount="6"
-            tools:listitem="@layout/list_of_categories" />
+        <HorizontalScrollView
+            android:id="@+id/categories"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="24dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp">
+
+                <Button
+                    style="@style/Button"
+                    android:layout_width="88dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/category_pressed_button_background"
+                    android:text="@string/pizza"
+                    android:textAllCaps="false"
+                    android:textColor="@color/accent" />
+
+                <Button
+                    style="@style/Button"
+                    android:layout_width="88dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/category_button_background"
+                    android:text="@string/combo"
+                    android:textAllCaps="false" />
+
+                <Button
+                    style="@style/Button"
+                    android:layout_width="88dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/category_button_background"
+                    android:text="@string/Dessert"
+                    android:textAllCaps="false" />
+
+                <Button
+                    style="@style/Button"
+                    android:layout_width="88dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/category_button_background"
+                    android:text="@string/drinks"
+                    android:textAllCaps="false" />
+
+                <Button
+                    style="@style/Button"
+                    android:layout_width="88dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/category_button_background"
+                    android:text="@string/snacks"
+                    android:textAllCaps="false" />
+
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/goodsRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:background="@color/white"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        tools:itemCount="3"
+        tools:listitem="@layout/list_of_goods" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:background="@color/gray"
+        android:orientation="horizontal">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/goodsRecycler"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:layout_weight="1"
-            android:background="@color/white"
-            tools:itemCount="3"
-            tools:listitem="@layout/list_of_goods" />
+            android:gravity="center"
+            android:text="@string/menu"
+            android:textColor="@color/accent"
+            app:drawableTopCompat="@drawable/ic_menu"
+            tools:ignore="NestedWeights" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_gravity="bottom"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:gravity="center"
+            android:text="@string/profile"
+            app:drawableTopCompat="@drawable/ic_profile" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/menu"
-                app:drawableTopCompat="@drawable/ic_menu"
-                tools:ignore="NestedWeights" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/profile"
-                app:drawableTopCompat="@drawable/ic_profile" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/basket"
-                app:drawableTopCompat="@drawable/ic_basket" />
-        </LinearLayout>
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/basket"
+            app:drawableTopCompat="@drawable/ic_basket" />
     </LinearLayout>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

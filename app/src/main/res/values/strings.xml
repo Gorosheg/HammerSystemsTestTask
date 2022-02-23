@@ -3,4 +3,11 @@
     <string name="profile">Профиль</string>
     <string name="basket">Корзина</string>
     <string name="menu">Меню</string>
+    <string name="combo">Комбо</string>
+    <string name="price">от 199 р</string>
+    <string name="pizza">Пицца</string>
+    <string name="Dessert">Десерты</string>
+    <string name="drinks">Напитки</string>
+    <string name="snacks">Закуски</string>
+    <string name="moscow">Москва</string>
 </resources>
