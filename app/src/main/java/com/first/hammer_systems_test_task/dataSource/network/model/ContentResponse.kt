@@ -2,7 +2,7 @@ package com.first.hammer_systems_test_task.dataSource.network.model
 
 import com.google.gson.annotations.SerializedName
 
-class ContentResponse(
+internal class ContentResponse(
 
     @SerializedName("id")
     val title: String,
