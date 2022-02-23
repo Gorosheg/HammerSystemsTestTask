@@ -18,6 +18,7 @@
             style="@style/Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|snap"
             app:subtitleTextColor="@color/black"
             app:titleTextColor="@color/black">
 
@@ -59,13 +60,15 @@
             android:id="@+id/tSpecialOffers"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:scrollbars="none">
+            android:scrollbars="none"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_scrollFlags="scroll|snap">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="8dp">
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp">
 
                 <ImageView
                     android:id="@+id/firstSpecialOffer"
@@ -89,10 +92,11 @@
 
         <HorizontalScrollView
             android:id="@+id/categories"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:scrollbars="none">
+            android:scrollbars="none"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -202,6 +206,7 @@
             android:gravity="center"
             android:text="@string/basket"
             app:drawableTopCompat="@drawable/ic_basket" />
+
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
