@@ -19,7 +19,7 @@ class PizzaDi {
     private val api: PizzaApi = Retrofit.Builder()
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl("https://tasty.p.rapidapi.com")
+        .baseUrl("https://api.coinbase.com")
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()
         .create(PizzaApi::class.java)
