@@ -8,7 +8,6 @@ import retrofit2.HttpException
 
 class PizzaViewModel(private val repository: PizzaRepository) : ViewModel() {
 
-
     val loadPizza = repository.loadPizza
 
 }
