@@ -40,7 +40,8 @@
                         android:layout_height="112dp"
                         android:layout_marginEnd="16dp"
                         android:scaleType="center"
-                        app:srcCompat="@drawable/ic_special_offer" />
+                        app:srcCompat="@drawable/ic_special_offer"
+                        android:contentDescription="@string/sale_30" />
 
                     <ImageView
                         android:id="@+id/secondSpecialOffer"
@@ -48,7 +49,8 @@
                         android:layout_height="112dp"
                         android:layout_marginEnd="16dp"
                         android:scaleType="center"
-                        app:srcCompat="@drawable/ic_special_offer_2" />
+                        app:srcCompat="@drawable/ic_special_offer_2"
+                        android:contentDescription="@string/birthday_present" />
 
                 </LinearLayout>
 
@@ -82,7 +84,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="9dp"
                         android:layout_marginTop="24dp"
-                        app:srcCompat="@drawable/ic_switch" />
+                        app:srcCompat="@drawable/ic_switch"
+                        android:contentDescription="@string/choose_city" />
 
                 </LinearLayout>
 
@@ -93,7 +96,8 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
-                    app:srcCompat="@drawable/ic_qr_code" />
+                    app:srcCompat="@drawable/ic_qr_code"
+                    tools:ignore="ContentDescription" />
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -163,7 +167,6 @@
                     android:text="@string/snacks"
                     android:textAllCaps="false" />
 
-
             </LinearLayout>
 
         </HorizontalScrollView>
@@ -171,14 +174,15 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/goodsRecycler"
+        android:id="@+id/pizzaRecycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="56dp"
         android:background="@color/white"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         tools:itemCount="3"
-        tools:listitem="@layout/list_of_goods" />
+        tools:listitem="@layout/list_of_pizza" />
 
     <LinearLayout
         android:layout_width="match_parent"

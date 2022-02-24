@@ -13,8 +13,8 @@ internal data class PizzaEntity(
 )
 
 internal fun Pizza.toEntity() = PizzaEntity(
-    name = name ?: "",
-    description = description ?: "",
+    name = name,
+    description = description,
 )
 
 internal fun List<PizzaEntity>.toSimplePizza(): List<Pizza> = map { pizza ->

@@ -10,4 +10,7 @@
     <string name="drinks">Напитки</string>
     <string name="snacks">Закуски</string>
     <string name="moscow">Москва</string>
+    <string name="sale_30">Скидка 30%</string>
+    <string name="birthday_present">Подарок в день рождения</string>
+    <string name="choose_city">Выбрать город</string>
 </resources>

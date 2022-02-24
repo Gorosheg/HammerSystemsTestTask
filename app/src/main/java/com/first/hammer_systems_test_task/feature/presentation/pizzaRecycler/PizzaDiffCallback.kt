@@ -1,9 +1,9 @@
-package com.first.hammer_systems_test_task.feature.presentation.goodsRecycler
+package com.first.hammer_systems_test_task.feature.presentation.pizzaRecycler
 
 import androidx.recyclerview.widget.DiffUtil
 import com.first.hammer_systems_test_task.common.model.Pizza
 
-class GoodsDiffCallback (
+class PizzaDiffCallback (
     private val oldList: List<Pizza>,
     private val newList: List<Pizza>
 ) : DiffUtil.Callback() {

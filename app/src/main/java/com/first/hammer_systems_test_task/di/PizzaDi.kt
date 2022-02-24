@@ -2,17 +2,15 @@ package com.first.hammer_systems_test_task.di
 
 import android.content.Context
 import androidx.room.Room
-import com.first.hammer_systems_test_task.common.model.Pizza
 import com.first.hammer_systems_test_task.dataSource.databace.DatabaseDatasource
 import com.first.hammer_systems_test_task.dataSource.databace.DatabaseDatasourceImpl
 import com.first.hammer_systems_test_task.dataSource.databace.PizzaDao
 import com.first.hammer_systems_test_task.dataSource.databace.PizzaDatabase
+import com.first.hammer_systems_test_task.dataSource.network.NetworkDatasource
 import com.first.hammer_systems_test_task.dataSource.network.NetworkDatasourceImpl
 import com.first.hammer_systems_test_task.dataSource.network.PizzaApi
-import com.first.hammer_systems_test_task.dataSource.network.NetworkDatasource
 import com.first.hammer_systems_test_task.feature.data.PizzaRepository
 import com.first.hammer_systems_test_task.feature.data.PizzaRepositoryImpl
-import com.first.hammer_systems_test_task.feature.presentation.PizzaViewModelFactory
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -40,8 +38,7 @@ class PizzaDi(context: Context) {
             .build()
 
     private val cityDao: PizzaDao = database.pizzaDao
-    val datasource: DatabaseDatasource = DatabaseDatasourceImpl(cityDao)
-
+    private val datasource: DatabaseDatasource = DatabaseDatasourceImpl(cityDao)
     private val networkDataSource: NetworkDatasource = NetworkDatasourceImpl(api)
 
     private val repository: PizzaRepository

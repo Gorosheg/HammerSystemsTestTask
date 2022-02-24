@@ -5,7 +5,7 @@ import com.first.hammer_systems_test_task.dataSource.databace.DatabaseDatasource
 import com.first.hammer_systems_test_task.dataSource.network.NetworkDatasource
 import io.reactivex.Observable
 
-class PizzaRepositoryImpl(
+internal class PizzaRepositoryImpl(
     private val network: NetworkDatasource,
     private val database: DatabaseDatasource
 ) : PizzaRepository {
