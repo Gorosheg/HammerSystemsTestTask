@@ -10,7 +10,7 @@ interface DatabaseDatasource {
 
     fun update(pizzaList: List<Pizza>)
 
-    fun getALLPizza(): Observable<List<Pizza>>
+    fun getPizza(): Observable<List<Pizza>>
 }
 
 internal class DatabaseDatasourceImpl(private val pizzaDao: PizzaDao) : DatabaseDatasource {
@@ -21,7 +21,7 @@ internal class DatabaseDatasourceImpl(private val pizzaDao: PizzaDao) : Database
         }
     }
 
-    override fun getALLPizza(): Observable<List<Pizza>> {
+    override fun getPizza(): Observable<List<Pizza>> {
         return pizzaDao.getPizza()
             .map(List<PizzaEntity>::toSimplePizza)
     }

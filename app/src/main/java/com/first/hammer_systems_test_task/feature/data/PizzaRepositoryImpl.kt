@@ -4,7 +4,6 @@ import com.first.hammer_systems_test_task.common.model.Pizza
 import com.first.hammer_systems_test_task.dataSource.databace.DatabaseDatasource
 import com.first.hammer_systems_test_task.dataSource.network.NetworkDatasource
 import io.reactivex.Observable
-import io.reactivex.Single
 
 class PizzaRepositoryImpl(
     private val network: NetworkDatasource,
@@ -19,13 +18,14 @@ class PizzaRepositoryImpl(
     }
 
     private fun loadPizzaFromDatabase(): Observable<List<Pizza>> {
-        return database.getALLPizza()
+        return database.getPizza()
     }
 
     private fun loadPizzaFromNetwork(): Observable<List<Pizza>> {
         return network.loadPizza()
             .doOnSuccess { database.update(it) }
             .toObservable()
+            .onErrorReturn { emptyList() }
+            .filter { it.isNotEmpty() }
     }
-
 }

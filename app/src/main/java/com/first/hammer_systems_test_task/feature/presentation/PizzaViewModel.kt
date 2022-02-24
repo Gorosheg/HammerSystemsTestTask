@@ -14,5 +14,4 @@ class PizzaViewModel(private val repository: PizzaRepository) : ViewModel() {
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
     }
-
 }
