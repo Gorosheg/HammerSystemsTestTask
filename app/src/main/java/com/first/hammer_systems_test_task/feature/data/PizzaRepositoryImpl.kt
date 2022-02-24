@@ -1,12 +1,31 @@
 package com.first.hammer_systems_test_task.feature.data
 
 import com.first.hammer_systems_test_task.common.model.Pizza
+import com.first.hammer_systems_test_task.dataSource.databace.DatabaseDatasource
 import com.first.hammer_systems_test_task.dataSource.network.NetworkDatasource
+import io.reactivex.Observable
 import io.reactivex.Single
 
-class PizzaRepositoryImpl(private val network: NetworkDatasource) : PizzaRepository {
+class PizzaRepositoryImpl(
+    private val network: NetworkDatasource,
+    private val database: DatabaseDatasource
+) : PizzaRepository {
 
-    override val loadPizza: Single<List<Pizza>> = network.loadPizza()
-    /*.doOnSuccess { }*/ //todo: add to db
+    override fun loadPizza(): Observable<List<Pizza>> {
+        return Observable.merge(
+            loadPizzaFromDatabase(),
+            loadPizzaFromNetwork()
+        ).distinctUntilChanged()
+    }
+
+    private fun loadPizzaFromDatabase(): Observable<List<Pizza>> {
+        return database.getALLPizza()
+    }
+
+    private fun loadPizzaFromNetwork(): Observable<List<Pizza>> {
+        return network.loadPizza()
+            .doOnSuccess { database.update(it) }
+            .toObservable()
+    }
 
 }

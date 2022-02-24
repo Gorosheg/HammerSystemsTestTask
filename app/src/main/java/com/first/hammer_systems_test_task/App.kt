@@ -7,7 +7,7 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        PizzaDi.instance = PizzaDi()
+        PizzaDi.instance = PizzaDi(this)
     }
 
 }

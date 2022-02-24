@@ -17,20 +17,20 @@ class PizzaActivity : AppCompatActivity() {
 
     private var disposable = CompositeDisposable()
     private val di by lazy { PizzaDi.instance }
-    private val goodsRecycler: RecyclerView by lazy { findViewById(R.id.goodsRecycler) }
+    private val recycler: RecyclerView by lazy { findViewById(R.id.goodsRecycler) }
 
     private val viewModel: PizzaViewModel by lazy {
         ViewModelProvider(this, di.viewModelFactory)
             .get(PizzaViewModel::class.java)
     }
 
-    private val goodsAdapter: GoodsAdapter by lazy { GoodsAdapter() }
+    private val adapter: GoodsAdapter by lazy { GoodsAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        goodsRecycler.layoutManager = LinearLayoutManager(this)
-        goodsRecycler.adapter = goodsAdapter
+        recycler.layoutManager = LinearLayoutManager(this)
+        recycler.adapter = adapter
 
         loadPizza()
 
@@ -42,11 +42,9 @@ class PizzaActivity : AppCompatActivity() {
     }
 
     private fun loadPizza() {
-        disposable += viewModel.loadPizza
-            .subscribeOn(Schedulers.newThread())
-            .observeOn(AndroidSchedulers.mainThread())
+        disposable += viewModel.loadPizza()
             .subscribe { pizza ->
-                goodsAdapter.items = pizza
+                adapter.items = pizza
             }
     }
 

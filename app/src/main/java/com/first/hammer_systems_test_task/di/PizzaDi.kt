@@ -1,5 +1,12 @@
 package com.first.hammer_systems_test_task.di
 
+import android.content.Context
+import androidx.room.Room
+import com.first.hammer_systems_test_task.common.model.Pizza
+import com.first.hammer_systems_test_task.dataSource.databace.DatabaseDatasource
+import com.first.hammer_systems_test_task.dataSource.databace.DatabaseDatasourceImpl
+import com.first.hammer_systems_test_task.dataSource.databace.PizzaDao
+import com.first.hammer_systems_test_task.dataSource.databace.PizzaDatabase
 import com.first.hammer_systems_test_task.dataSource.network.NetworkDatasourceImpl
 import com.first.hammer_systems_test_task.dataSource.network.PizzaApi
 import com.first.hammer_systems_test_task.dataSource.network.NetworkDatasource
@@ -12,7 +19,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-class PizzaDi() {
+class PizzaDi(context: Context) {
 
     private val okHttpClient = OkHttpClient().newBuilder()
         .connectTimeout(10, TimeUnit.SECONDS)
@@ -27,10 +34,18 @@ class PizzaDi() {
         .build()
         .create(PizzaApi::class.java)
 
+    private val database: PizzaDatabase =
+        Room.databaseBuilder(context, PizzaDatabase::class.java, "database")
+            .allowMainThreadQueries()
+            .build()
+
+    private val cityDao: PizzaDao = database.pizzaDao
+    val datasource: DatabaseDatasource = DatabaseDatasourceImpl(cityDao)
+
     private val networkDataSource: NetworkDatasource = NetworkDatasourceImpl(api)
 
     private val repository: PizzaRepository
-        get() = PizzaRepositoryImpl(networkDataSource)
+        get() = PizzaRepositoryImpl(networkDataSource, datasource)
 
     val viewModelFactory: PizzaViewModelFactory
         get() = PizzaViewModelFactory(repository)
